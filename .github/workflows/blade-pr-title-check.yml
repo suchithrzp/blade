@@ -8,8 +8,13 @@ concurrency: # cancel previously running workflows when a new workflow is re-run
   group: ${{ github.workflow }}-${{ github.ref }}
   cancel-in-progress: true
 
+permissions:
+  contents: read
+
 jobs:
   pr-title-check:
+    permissions:
+      pull-requests: write  # for marocchino/sticky-pull-request-comment to create or update PR comment
     name: Check
     runs-on: ubuntu-latest # nosemgrep: non-self-hosted-runner
     env:

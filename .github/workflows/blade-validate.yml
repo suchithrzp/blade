@@ -5,6 +5,9 @@ on: [pull_request]
 env:
   GITHUB_ACCESS_TOKEN: ${{ secrets.CI_BOT_TOKEN }}
 
+permissions:
+  contents: read
+
 jobs:
   validate:
     name: Validate Source Code
